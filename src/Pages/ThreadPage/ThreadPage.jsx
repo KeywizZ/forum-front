@@ -33,12 +33,12 @@ const ThreadPage = (props) => {
   }
 
   const openTextBox = () => {
-    if(comment) {
-        setComment(false);
-    }else {
-        setComment(true);
+    if (comment) {
+      setComment(false);
+    } else {
+      setComment(true);
     }
-  }
+  };
 
   return (
     <div className="forum-body">
@@ -46,9 +46,11 @@ const ThreadPage = (props) => {
         <h3>{thread.threadTitle}</h3>
       </div>
       <div className="post-container">
-        {thread.posts.map((post, i) => (
-          <Post items={post} key={post.postId} />
-        ))}
+        {thread.posts.length !== 0 ? (
+          thread.posts.map((post, i) => <Post items={post} key={post.postId} />)
+        ) : (
+          <p>No posts yet</p>
+        )}
       </div>
       <div className="new-post">
         <button onClick={openTextBox}>Add post</button>

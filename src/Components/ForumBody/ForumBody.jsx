@@ -30,6 +30,7 @@ const ForumBody = () => {
   useEffect(function () {
     Axios.get("http://localhost:4000/forum/threads").then(
       function (res) {
+        res.data.splice(0,2)
         setThreads(res.data);
         setTimeout(() => {
         }, 1000);

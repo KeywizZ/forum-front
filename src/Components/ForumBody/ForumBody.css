@@ -4,6 +4,7 @@
   width: 84%;
   height: 82%;
   border: 2px solid black;
+  overflow-y: auto;
 }
 
 .forum-row {
