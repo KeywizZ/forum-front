@@ -4,10 +4,12 @@ import { useState, useEffect } from "react";
 
 import "./ThreadPage.css";
 import Post from "../Post/Post";
+import AddPost from "../../Posting/AddPost";
 
 const ThreadPage = (props) => {
   const [thread, setThread] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [comment, setComment] = useState(false);
 
   useEffect(function () {
     const windowUrl = window.location.href;
@@ -30,6 +32,14 @@ const ThreadPage = (props) => {
     );
   }
 
+  const openTextBox = () => {
+    if(comment) {
+        setComment(false);
+    }else {
+        setComment(true);
+    }
+  }
+
   return (
     <div className="forum-body">
       <div clasName="thread-title">
@@ -41,7 +51,8 @@ const ThreadPage = (props) => {
         ))}
       </div>
       <div className="new-post">
-        
+        <button onClick={openTextBox}>Add post</button>
+        {comment && <AddPost />}
       </div>
     </div>
   );

@@ -44,7 +44,7 @@ const ForumBody = () => {
       <div className="top-threads">
         {topThreads.map((thread, i) => {
           return (
-            <Link to={`/${topThreads[i].threadId}`}>
+            <Link to={`/thread/${topThreads[i].threadId}`}>
               <ForumRow items={topThreads[i]} key={topThreads[i].threadId} />
             </Link>
           );
