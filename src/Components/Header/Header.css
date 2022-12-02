@@ -1,0 +1,114 @@
+.header{
+    position: absolute;
+    display: flex;
+    width: 100%;
+    background-color: #8a2be2;
+    flex-wrap: wrap;
+    box-shadow: 0px 2px 5px blueviolet;
+    height: 90px;
+}
+
+.menu-container {
+    display: none;
+}
+
+.title {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.title > h1 {
+    color: white;
+    margin: 0;
+    margin-top: 10px;
+    text-shadow: 2px 2px 1px black;
+}
+
+.toolbar{
+    width: 100%;
+}
+
+.toolbar-list {
+    width: auto;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    padding-top: 6px;
+}
+
+.toolbar-list > a {
+    /* display: inline; */
+    border-right: 1px solid rgba(255, 255, 255, 0.459);
+    width: 10%;
+    height: 30px;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    background: blueviolet;
+    text-decoration: none;
+    color: rgb(202, 202, 202);
+    transition: 0.25s;
+}
+.toolbar-list > a:hover {
+    background:  rgb(81, 16, 87);
+    color: white;
+}
+
+.toolbar-list > li:hover {
+    border-bottom: 2px solid rgb(81, 16, 87);
+    border-right: 2px solid rgb(81, 16, 87);
+}
+
+.toolbar-list > li > a {
+    text-decoration: none;
+    list-style-type: none;
+    color: white;
+
+}
+
+.toolbar-list > li > a:hover{
+    text-shadow: 1px 1px 1px black;
+}
+
+@media (max-width: 770px) {
+    .toolbar-list{
+        width: 100%;
+        justify-content: space-around;
+    }
+    .toolbar-list > li {
+        width: 100%;
+        border: none;
+    }
+    .toolbar-list > li:hover {
+        border: none;
+    }
+}
+
+@media (max-width: 542px) {
+    .toolbar{
+        display: none;
+    }
+    .title > h1 {
+        margin-top: 5px;
+        text-align: center;
+    }
+    .header {
+        height: 60px;
+    }
+    .menu-container{
+        display: flex;
+        position: absolute;
+        right: 0;
+        margin-right: 2%;
+        height: 100%;
+        align-items: center;
+    }
+    .menu-container > svg {
+        font-size: 23pt;
+        color: white;
+    }
+}

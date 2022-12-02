@@ -1,23 +1,24 @@
-import logo from './logo.svg';
-import './App.css';
+import { Navigate, Route, Routes, useParams } from "react-router-dom";
+import "./App.css";
+import ForumBody from "./Components/ForumBody/ForumBody";
+import Header from "./Components/Header/Header";
+import NewsPage from "./Pages/NewsPage/NewsPage";
+import ThreadPage from "./Pages/ThreadPage/ThreadPage";
 
 function App() {
+  let {threadId} = useParams();
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Header />
+      <Routes>
+        <Route path="/home" element={<ForumBody />} />
+        <Route path="/news" element={<NewsPage />}/>
+        <Route path="/thread">
+          <Route path=":threadId" element={<ThreadPage />}/>
+        </Route>
+        
+        <Route path="*" element={<Navigate to="/home" />} />
+      </Routes>
     </div>
   );
 }
